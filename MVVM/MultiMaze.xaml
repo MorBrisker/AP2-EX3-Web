@@ -1,0 +1,26 @@
+﻿<Window x:Class="MVVM.MultiMaze"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM"
+        xmlns:Controls="clr-namespace:MVVM"
+        mc:Ignorable="d"
+        Title="{Binding MazeName}" Height="300" Width="600">
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.ColumnSpan="2" Margin="5" Padding="5" HorizontalAlignment="Center" Width="125" Content="Back to main menu" Click="backToMainMenu_Click"/>
+            <Controls:MazeBoard Grid.Row="1" Grid.Column="0" x:Name="mazeyHome"  KeyDown="Grid_KeyDownHome" Loaded="UserControlHome_Loaded" MString="{Binding MazeString,Mode=TwoWay}" IsClosed="{Binding IsClosed, Mode=TwoWay}"/>
+            <Controls:MazeBoard Grid.Row="1" Grid.Column="1" x:Name="mazeyAway"  KeyDown="Grid_KeyDownAway" Loaded="UserControlAway_Loaded" MString="{Binding MazeString,Mode=TwoWay}" OppDirection="{Binding OppDir, Mode=TwoWay}"/>
+
+        </Grid>
+    </Viewbox>
+</Window>

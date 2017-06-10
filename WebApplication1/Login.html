@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
+    <style>
+        .form {
+            width: 150px;
+            margin: 5px;
+            font-family: 'Comic Sans MS';
+        }
+    </style>
+    <ul id="nav-bar"></ul>
+    <div class="body">
+        <h1>Login</h1>
+        <h3>Use a local account to log in.</h3>
+        <form action="/action_page.php">
+            Username: <input type="text" name="Rows" value="Enter Username" class="form"><br>
+            Password: <input type="text" name="Cols" value="Enter password" class="form"><br><br>
+            <input type="submit" value="Login" class=" button">
+        </form>
+        <p><a class="link" href="Register.html">Register as a new user</a></p>
+    </div>
+    <script>
+            $("#nav-bar").load("NavBar.html");
+    </script>
+    
+</body>
+</html>

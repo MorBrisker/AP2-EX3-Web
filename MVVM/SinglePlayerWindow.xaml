@@ -1,0 +1,14 @@
+﻿<Window x:Class="MVVM.SinglePlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MVVM"
+        mc:Ignorable="d"
+        Title="SinglePlayerWindow" Height="180" Width="220">
+    <Grid>
+        <Button Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="71,108,0,0" Click="btnStart_Click"/>
+        <Controls:SinglePlayer x:Name="single" Grid.Row="2" Grid.ColumnSpan="2" MName="{Binding MazeName}" Rows="{Binding MazeRows}" Cols="{Binding MazeCols}" />
+
+    </Grid>
+</Window>

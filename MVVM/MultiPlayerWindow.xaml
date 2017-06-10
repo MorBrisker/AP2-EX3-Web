@@ -1,0 +1,38 @@
+﻿<Window x:Class="MVVM.MultiPlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVVM"
+        mc:Ignorable="d"
+        xmlns:Controls="clr-namespace:MVVM"
+        Title="MultiPlayerWindow" Height="250" Width="230">
+    <Grid TextBlock.FontSize="14" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Margin" Value="3"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Margin" Value="3"/>
+            </Style>
+        </Grid.Resources>
+        <TextBlock>List of games:</TextBlock>
+        <ComboBox x:Name="txtGameName" Grid.Column="2" HorizontalAlignment="Left" ItemsSource="{Binding GameList}" Margin="7,0,0,0"/>
+        <Button x:Name="btnRefresh" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Margin="5" Padding="5" Content="Refresh" Click="btnRefresh_Click"/>
+        <Button x:Name="btnJoin" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Margin="5" Padding="5" Content="Join Game" Click="btnJoin_Click" />
+        <Controls:SinglePlayer Grid.Row="2" Grid.ColumnSpan="2"  MName="{Binding MazeName}" Rows="{Binding MazeRows}" Cols="{Binding MazeCols}"/>
+        <Button Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Margin="80,107.667,0,0" Grid.Row="2" Click="btnStart_Click"/>
+        
+    </Grid>
+</Window>
