@@ -11,8 +11,6 @@
     <style>
         .form {
             width: 150px;
-            margin: 5px;
-            font-family: 'Comic Sans MS';
         }
     </style>
     <script src="jQuery.MazeBoard.js"></script>
@@ -37,17 +35,18 @@
             </form>
         </div>
         <div class="col-sm-4 text-center">
-            <canvas tabindex="1" width="370" height="370" style="border:2px black solid"></canvas>
+            <canvas id="mazeCanvas1" tabindex="1" width="370" height="370" style="border:2px black solid"></canvas>
         </div>
         <div class="col-sm-4 text-center">
-            <canvas tabindex="1" width="370" height="370" style="border:2px black solid"></canvas>
+            <canvas id="mazeCanvas2" tabindex="1" width="370" height="370" style="border:2px black solid"></canvas>
         </div>
     </div>
     <script>
             $("#nav-bar").load("NavBar.html");
     </script>
     <script>
-            $("canvas").drawMaze();
+            $("#mazeCanvas1").drawMaze();
+            $("#mazeCanvas2").drawMaze();
     </script>
 </body>
 </html>

@@ -34,14 +34,14 @@
             </form>
         </div>
         <div class="col-sm-8 text-center" >
-            <canvas tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
+            <canvas id="mazeCanvas" tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
         </div>
     </div>
     <script>
             $("#nav-bar").load("NavBar.html");
     </script>
     <script>
-                    $("canvas").drawMaze();
+        $("#mazeCanvas").drawMaze();
     </script>
 </body>
 </html>
