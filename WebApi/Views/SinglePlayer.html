@@ -55,7 +55,7 @@
             var request = apiUrl + "/" + mazey.Name + "/" + mazey.Rows + "/" + mazey.Cols;
 
             $.getJSON(request, function (data, status) {
-                alert(data);
+                //alert(data);
                 $("#mazeCanvas").drawMaze(data);
                 //alert(data);
             });
