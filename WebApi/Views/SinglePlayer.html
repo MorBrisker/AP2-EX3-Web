@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8" />
     <title>Single Game</title>
-    <script src="//code.jquery.com/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
     <link href="../CSS/bootstrap.css" rel="stylesheet" />
 </head>
@@ -13,7 +12,7 @@
             width: 150px;
         }
     </style>
-    <script src="../Scripts/jQuery.MazeBoard.js"></script>
+    
     <ul id="nav-bar"></ul>
     <div class="container body-content body">
         <div class="col-sm-4 form-horizontal ">
@@ -41,20 +40,24 @@
             $("#nav-bar").load("NavBar.html");
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="../Scripts/jQuery.MazeBoard.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="../Scripts/jquery-3.1.1.js"></script>
+
     <script>
         $("#start").click(function () {
             var apiUrl = "../api/SingleMaze";
-            var maze = {
+            var mazey = {
                 Name: $("#mazeName").val(),
                 Rows: $("#mazeRows").val(),
                 Cols: $("#mazeCols").val()
             };
-            var request = apiUrl + "/" + maze.Name + "/" + maze.Rows + "/" + maze.Cols;
+            var request = apiUrl + "/" + mazey.Name + "/" + mazey.Rows + "/" + mazey.Cols;
 
-            $.get(request, function (data, status) {
+            $.getJSON(request, function (data, status) {
                 alert(data);
+                $("#mazeCanvas").drawMaze(data);
+                //alert(data);
             });
         });
     </script>

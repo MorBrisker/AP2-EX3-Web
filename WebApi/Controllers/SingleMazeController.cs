@@ -19,9 +19,7 @@ namespace WebApi.Controllers
         [Route("api/SingleMaze/{name}/{rows}/{cols}")]
         public string Generate(string name, int rows, int cols)
         {
-            Maze maze = m.GenerateMaze(name, rows, cols);
-            //JObject obj = JObject.Parse(maze.ToJSON());
-            return maze.ToJSON();
+            return m.GenerateMaze(name, rows, cols);
         }
 
         /*[HttpGet]

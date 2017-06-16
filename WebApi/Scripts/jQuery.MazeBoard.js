@@ -1,20 +1,22 @@
 ﻿(function ($) {
-    $.fn.drawMaze = function () {
-        maze = [[0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0],
-        [0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0],
-        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]];
-        //var myCanvas = document.getElementById("mazeCanvas");
-        var myCanvas = $(this)[0];
+    $.fn.drawMaze = function (data) {
+        var obj = JSON.parse(data);
+        var maze = obj.Maze;
+        //alert(data);
+        var myCanvas = document.getElementById("mazeCanvas");
+        //var myCanvas = $(this);
         var context = myCanvas.getContext("2d");
-        var rows = maze.length;
-        var cols = maze[0].length;
+        var rows = obj.Rows;
+        var cols = obj.Cols;
         var cellWidth = myCanvas.width / cols;
         var cellHeight = myCanvas.height / rows;
+        var count = 0;
         for (var i = 0; i < rows; i++) {
             for (var j = 0; j < cols; j++) {
-                if (maze[i][j] == 1) {
+                if (maze[count] === '1') {
                     context.fillRect(cellWidth * j, cellHeight * i, cellWidth, cellHeight);
                 }
+                count++;
             }
         }
         return this;
