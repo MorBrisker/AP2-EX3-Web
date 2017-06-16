@@ -15,19 +15,23 @@ namespace WebApi.Controllers
         public static SingleMazeModel m = new SingleMazeModel();
 
         // GET: api/SingleMaze
-        public IEnumerable<string> Get()
+        [HttpGet]
+        [Route("api/SingleMaze/{name}/{rows}/{cols}")]
+        public string Generate(string name, int rows, int cols)
         {
-            return new string[] { "value1", "value2" };
+            Maze maze = m.GenerateMaze(name, rows, cols);
+            //JObject obj = JObject.Parse(maze.ToJSON());
+            return maze.ToJSON();
         }
 
-        [HttpGet]
+        /*[HttpGet]
         [Route("api/GenerateMaze/{name}/{rows}/{cols}")]
         public JObject GenerateMaze(string name, int rows, int cols)
         {
             Maze maze = Maze.FromJSON(m.GenerateMaze(name, rows, cols));
             JObject obj = JObject.Parse(maze.ToJSON());
             return obj;
-        }
+        }*/
 
         // GET: api/SingleMaze/5
         public string Get(int id)
