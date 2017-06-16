@@ -4,7 +4,7 @@
         [0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0],
         [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]];
         //var myCanvas = document.getElementById("mazeCanvas");
-        var myCanvas = $(this)[0];
+        var myCanvas = $(this);
         var context = myCanvas.getContext("2d");
         var rows = maze.length;
         var cols = maze[0].length;
