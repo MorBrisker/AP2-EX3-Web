@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Settings</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+</head>
+<body>
+    <style>
+        .form {
+            width: 150px;
+            margin: 5px;
+            font-family: 'Comic Sans MS';
+        }
+    </style>
+    <ul id="nav-bar"></ul>
+    <div class="body">
+        <h1>Settings</h1>
+        <form action="/action_page.php">
+            Rows: <input type="text" name="Rows" value="10" class="form"><br>
+            Cols: <input type="text" name="Cols" value="10" class="form"><br>
+            Search Algo:
+            <select style="font-family:'Comic Sans MS'">
+                <option value="DFS">DFS</option>
+                <option value="BFS">BFS</option>
+            </select><br><br>
+            <input type="submit" value="Save" class=" button">
+        </form>
+    </div>
+    <script>
+            $("#nav-bar").load("NavBar.html");
+    </script>
+
+    
+</body>
+</html>

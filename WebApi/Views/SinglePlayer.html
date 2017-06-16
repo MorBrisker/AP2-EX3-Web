@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Single Game</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+    <link href="../CSS/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <style>
+        .form {
+            width: 150px;
+        }
+    </style>
+    <script src="../Scripts/jQuery.MazeBoard.js"></script>
+    <ul id="nav-bar"></ul>
+    <div class="container body-content body">
+        <div class="col-sm-4 form-horizontal ">
+            <h1>Single Game</h1>
+            <form method="post" class="form-group">
+                <label class="col-sm-2">Name:</label> <input type="text" name="Name" value="Enter your name" class="col-sm-10 form"><br><br>
+                <label class="col-sm-2">Rows:</label> <input type="text" name="Rows" value="10" class="col-sm-10 form"><br><br>
+                <label class="col-sm-2">Cols:</label> <input type="text" name="Cols" value="10" class="col-sm-10 form"><br>
+                <input id="generate" type="button" value="Start New Game" class=" button"><br><br>
+            </form>
+            <form class="form-group">
+                <label>Search Algo:</label>
+                <select style="font-family:'Comic Sans MS'">
+                    <option value="DFS">DFS</option>
+                    <option value="BFS">BFS</option>
+                </select>
+                <br><input type="submit" value="Solve Game" class=" button">
+            </form>
+        </div>
+        <div class="col-sm-8 text-center" >
+            <canvas id="mazeCanvas" tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
+        </div>
+    </div>
+    <script>
+            $("#nav-bar").load("NavBar.html");
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+        $("#generate").click(function () {
+            $.post("../api/SingleMaze", "hrrrr",
+                function (data) {
+                    alert(data);
+                });
+        });
+        $("#mazeCanvas").drawMaze();
+    </script>
+</body>
+</html>
