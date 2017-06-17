@@ -1,10 +1,10 @@
 ﻿(function ($) {
-    $.fn.drawMaze = function (data) {
+    $.fn.drawMazey = function (data) {
         var obj = JSON.parse(data);
         var maze = obj.Maze;
         //alert(data);
-        var myCanvas = document.getElementById("mazeCanvas");
-        //var myCanvas = $(this);
+        //var myCanvas = document.getElementById("mazeCanvas");
+        var myCanvas = $(this)[0];
         var context = myCanvas.getContext("2d");
         var rows = obj.Rows;
         var cols = obj.Cols;
