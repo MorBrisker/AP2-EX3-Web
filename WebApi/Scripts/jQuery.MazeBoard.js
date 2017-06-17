@@ -2,10 +2,10 @@
     $.fn.drawMazey = function (data) {
         var obj = JSON.parse(data);
         var maze = obj.Maze;
-        //alert(data);
         //var myCanvas = document.getElementById("mazeCanvas");
-        var myCanvas = $(this);
+        var myCanvas = $(this)[0];
         var context = myCanvas.getContext("2d");
+        context.clearRect(0, 0, myCanvas.width, myCanvas.height);
         var rows = obj.Rows;
         var cols = obj.Cols;
         var cellWidth = myCanvas.width / cols;

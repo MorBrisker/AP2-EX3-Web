@@ -12,15 +12,14 @@
             width: 150px;
         }
     </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="../Scripts/SinglePlayerJS.js"></script>
     <script src="../Scripts/jquery-3.1.1.js"></script>
     <script src="../Scripts/jQuery.MazeBoard.js"></script>
     <ul id="nav-bar"></ul>
     <div class="container body-content body">
         <div class="col-sm-4 form-horizontal ">
             <h1>Single Game</h1>
-            <form id="generate" class="form-group">
+            <form class="form-group">
                 <label class="col-sm-2">Name:</label> <input type="text" id="mazeName" name="Name" value="Enter your name" class="col-sm-10 form"><br><br>
                 <label class="col-sm-2">Rows:</label> <input type="text" id="mazeRows" name="Rows" value="10" class="col-sm-10 form"><br><br>
                 <label class="col-sm-2">Cols:</label> <input type="text" id="mazeCols" name="Cols" value="10" class="col-sm-10 form"><br>
@@ -40,22 +39,8 @@
         </div>
     </div>
     <script>
-            $("#nav-bar").load("NavBar.html");
-    </script>
-    <script>
-        $("#start").click(function () {
-            var apiUrl = "../api/SingleMaze";
-            var mazey = {
-                Name: $("#mazeName").val(),
-                Rows: $("#mazeRows").val(),
-                Cols: $("#mazeCols").val()
-            };
-            var request = apiUrl + "/" + mazey.Name + "/" + mazey.Rows + "/" + mazey.Cols;
-
-            $.getJSON(request, function (data, status) {
-                $("#mazeCanvas").drawMazey(data);
-            });
-        });
+        $("#nav-bar").load("NavBar.html");
+        $("#start").click(generate);
     </script>
 </body>
 </html>
