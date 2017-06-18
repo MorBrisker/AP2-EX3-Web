@@ -17,11 +17,21 @@ namespace WebApi.Controllers
         // GET: api/SingleMaze
         [HttpGet]
         [Route("api/SingleMaze/{name}/{rows}/{cols}")]
-        public string Generate(string name, int rows, int cols)
+        public JObject Generate(string name, int rows, int cols)
         {
-            return m.GenerateMaze(name, rows, cols);
+            Maze maze = m.GenerateMaze(name, rows, cols);
+            JObject obj = JObject.Parse(maze.ToJSON());
+            return obj;
         }
 
+        [HttpGet]
+        [Route("api/SingleMaze/{name}/{alg}")]
+        public JObject Solve(string name, int alg)
+        {
+            MazeSolution ms = m.SolveMaze(name, alg);
+            JObject obj = JObject.Parse(ms.ToJSON());
+            return obj;
+        }
         /*[HttpGet]
         [Route("api/GenerateMaze/{name}/{rows}/{cols}")]
         public JObject GenerateMaze(string name, int rows, int cols)

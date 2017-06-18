@@ -16,7 +16,7 @@ namespace WebApi.Models
         /// <summary>
         /// The sol
         /// </summary>
-        private String sol;
+        public String sol;
         /// <summary>
         /// The path
         /// </summary>
@@ -76,7 +76,6 @@ namespace WebApi.Models
         public string GetPath() {
 			return this.sol;
 		}
-
         /// <summary>
         /// To the json.
         /// </summary>
