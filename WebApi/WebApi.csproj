@@ -44,10 +44,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MazeGeneratorLib">
-      <HintPath>..\..\..\..\Downloads\MazeGeneratorLib.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\לימודים\שנה ב\סמסטר ב\תכנות מתקדם\תרגילים\EX1\MazeGeneratorLib.dll</HintPath>
     </Reference>
     <Reference Include="MazeLib">
-      <HintPath>..\..\..\..\Downloads\MazeLib.dll</HintPath>
+      <HintPath>..\..\..\..\Documents\לימודים\שנה ב\סמסטר ב\תכנות מתקדם\תרגילים\EX1\MazeLib.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
