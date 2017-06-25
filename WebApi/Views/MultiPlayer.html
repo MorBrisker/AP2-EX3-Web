@@ -27,17 +27,16 @@
             <h1>MultiPlayer Game</h1>
             <form action="/action_page.php">
                 <label class="col-sm-3">Games:</label>
-                <select id="listOfGames" class="form col-sm-9">
-
+                <select placeholder="Choose game" id="listOfGames" class="form col-sm-9">
+                    <option disabled selected>Select game</option>
                 </select>
                 <br><input id="join" type="button" value="Join Game" class="button">
                 <h2>Start New Game</h2>
             </form>
             <form action="/action_page.php">
-                <label class="col-sm-2">Name:</label> <input id="player" type="text" name="Name" value="" class="form col-sm-10"><br><br>
-                <label class="col-sm-2">Maze Name:</label> <input id="mazeName" type="text" name="MazeName" value="" class="form col-sm-10"><br><br>
-                <label class="col-sm-2">Rows:</label> <input id="mazeRows" type="number" name="Rows" value="10" class="form col-sm-10"><br><br>
-                <label class="col-sm-2">Cols:</label> <input id="mazeCols" type="number" name="Cols" value="10" class="form col-sm-10"><br>
+                <label class="col-sm-2">Maze Name:</label> <input id="mazeName" type="text" name="MazeName" placeholder="Enter maze name" class="form col-sm-10"><br><br>
+                <label class="col-sm-2">Rows:</label> <input id="mazeRows" type="number" name="rows" placeholder="Enter number of rows" class="form col-sm-10"><br><br>
+                <label class="col-sm-2">Cols:</label> <input id="mazeCols" type="number" name="cols"s placeholder="Enter number of cols" class="form col-sm-10"><br>
                 <input id="start" type="button" value="Start New Game" class="button"><br>
             </form>
             <ul id="chat"></ul>
@@ -55,11 +54,11 @@
     <img id="unicornOpp" src="../Images/unicorn.jpg" hidden="hidden" />
     <img id="cloudOpp" src="../Images/cloud.png" hidden="hidden" />
 
-    
     <script src="../Scripts/MultiMazeJS.js"></script>
-
     <script>
             $("#nav-bar").load("NavBar.html");
+            $("#mazeRows").val(localStorage.getItem("rows"));
+            $("#mazeCols").val(localStorage.getItem("cols"));
     </script>
     <div class="modal"></div>
 </body>

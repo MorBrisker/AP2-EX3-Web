@@ -25,9 +25,9 @@
         <div class="col-sm-4 form-horizontal ">
             <h1>Single Game</h1>
             <form class="form-group">
-                <label class="col-sm-2">Name:</label> <input type="text" id="mazeName" name="Name" value="Enter your name" class="col-sm-10 form"><br><br>
-                <label class="col-sm-2">Rows:</label> <input type="text" id="mazeRows" name="Rows" value="10" class="col-sm-10 form"><br><br>
-                <label class="col-sm-2">Cols:</label> <input type="text" id="mazeCols" name="Cols" value="10" class="col-sm-10 form"><br>
+                <label class="col-sm-2">Name:</label> <input type="text" id="mazeName" name="Name" placeholder="Enter your name" class="col-sm-10 form"><br><br>
+                <label class="col-sm-2">Rows:</label> <input type="text" id="mazeRows" name="rows" class="col-sm-10 form"><br><br>
+                <label class="col-sm-2">Cols:</label> <input type="text" id="mazeCols" name="cols" class="col-sm-10 form"><br>
                 <input id="start" type="button" value="Start New Game" class="button"><br><br>
             </form>
             <form class="form-group">
@@ -40,13 +40,9 @@
             </form>
         </div>
         <div class="col-sm-8 text-center" >
-            
             <img id="unicorn" src="../Images/unicorn.jpg" hidden="hidden" />
             <img id="cloud" src="../Images/cloud.png" hidden="hidden" />
             <canvas id="mazeCanvas" hidden="hidden"  tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
-            
-            
-
         </div>
     </div>
     <script src="../Scripts/SinglePlayerJS.js"></script>
@@ -58,6 +54,10 @@
             //endOfGame();
         });
         $("#solve").click(solve);
+        $("#mazeRows").val(localStorage.getItem("rows"));
+        $("#mazeCols").val(localStorage.getItem("cols"));
+        $("#alg").val(localStorage.getItem("algo"));
+
     </script>
 
     <div class="modal"></div>

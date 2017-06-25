@@ -5,6 +5,10 @@ var gName;
 var game = $.connection.multiMazeHub;
 
 $("document").ready(function () {
+    if (!sessionStorage.getItem("user")) {
+        alert("Please connect first");
+        window.location.replace("Login.html");
+    }
     var script = document.createElement('script');
     script.src = '../Scripts/jQuery.MazeBoard.js';
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -60,7 +64,7 @@ $.connection.hub.start().done(function () {
     $('#start').click(function () {
         $("body").addClass("loading");
 
-        var name = $('#player').val();
+        var name = sessionStorage.getItem("user");
         gName = $('#mazeName').val();
         var rows = $('#mazeRows').val();
         var cols = $('#mazeCols').val();
@@ -70,8 +74,8 @@ $.connection.hub.start().done(function () {
     $('#join').click(function () {
         $("body").addClass("loading");
 
-        var name = $('#player').val();
-        gName = $("#listOfGames option:selected").text()
+        var name = sessionStorage.getItem("user");
+        gName = $("#listOfGames option:selected").text();
         game.server.joinGame(gName, name);
     });
 
@@ -80,7 +84,7 @@ $.connection.hub.start().done(function () {
     });
 
     $('#bodyMaze').keydown(function (e) {
-        var name = $('#player').val();
+        var name = sessionStorage.getItem("user");
         var dir = null;
         switch (e.which) {
             case 37:

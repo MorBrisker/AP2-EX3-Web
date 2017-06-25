@@ -94,6 +94,11 @@ function moveOneStep(e) {
         default:
             break;
     }
+
+    /*if ((currPos.Row == goalPos.Row) && (currPos.Col == goalPos.Col)) {
+        alert("you are the best");
+    }*/
+
 }
 
 function moveLeft(player, canvas, currentPos) {
