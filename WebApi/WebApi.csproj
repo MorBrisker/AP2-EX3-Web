@@ -211,6 +211,7 @@
     <Content Include="Scripts\sha.js" />
     <Content Include="Scripts\sha1.js" />
     <Content Include="Scripts\sha_dev.js" />
+    <Content Include="Scripts\SinglePlayerJS.js" />
     <Content Include="Views\Login.html" />
     <Content Include="Views\MainPage.html" />
     <Content Include="Views\MazeBoard.html" />

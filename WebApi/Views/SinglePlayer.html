@@ -1,17 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    
+
     <script src="../Scripts/jquery-3.1.1.js"></script>
-    <script src="../Scripts/jQuery.MazeBoard.js"></script>
-    <script src="../Scripts/SinglePlayerJS.js"></script>
 
     <meta charset="utf-8" />
     <title>Single Game</title>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
     <link href="../CSS/bootstrap.css" rel="stylesheet" />
     <link href="../CSS/Loader.css" rel="stylesheet" />
-
     
 
 </head>
@@ -52,12 +49,13 @@
 
         </div>
     </div>
+    <script src="../Scripts/SinglePlayerJS.js"></script>
     <script>
         $("#nav-bar").load("NavBar.html");
         $("#start").click(generate);
         $("#bodyMaze").keydown(function (e) {
             moveOneStep(e);
-            endOfGame();
+            //endOfGame();
         });
         $("#solve").click(solve);
     </script>

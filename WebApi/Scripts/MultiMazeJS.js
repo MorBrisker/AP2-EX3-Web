@@ -4,6 +4,11 @@ var gName;
 // Declare a proxy to reference the hub
 var game = $.connection.multiMazeHub;
 
+$("document").ready(function () {
+    var script = document.createElement('script');
+    script.src = '../Scripts/jQuery.MazeBoard.js';
+    document.getElementsByTagName('head')[0].appendChild(script);
+});
 
 game.client.drawMaze = function (maze) {
     $("body").removeClass("loading");
