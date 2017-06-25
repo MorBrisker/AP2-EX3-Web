@@ -1,16 +1,21 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    
     <script src="../Scripts/jquery-3.1.1.js"></script>
     <script src="../Scripts/jQuery.MazeBoard.js"></script>
     <script src="../Scripts/SinglePlayerJS.js"></script>
-    
+
     <meta charset="utf-8" />
     <title>Single Game</title>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
     <link href="../CSS/bootstrap.css" rel="stylesheet" />
+    <link href="../CSS/Loader.css" rel="stylesheet" />
+
+    
+
 </head>
-<body>
+<body id="bodyMaze">
     <style>
         .form {
             width: 150px;
@@ -38,9 +43,11 @@
             </form>
         </div>
         <div class="col-sm-8 text-center" >
+            
             <img id="unicorn" src="../Images/unicorn.jpg" hidden="hidden" />
             <img id="cloud" src="../Images/cloud.png" hidden="hidden" />
-            <canvas id="mazeCanvas" tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
+            <canvas id="mazeCanvas" hidden="hidden"  tabindex="1" width="500" height="500" style="border:2px black solid"></canvas>
+            
             
 
         </div>
@@ -48,9 +55,15 @@
     <script>
         $("#nav-bar").load("NavBar.html");
         $("#start").click(generate);
-        $("#mazeCanvas").keydown(moveOneStep);
+        $("#bodyMaze").keydown(function (e) {
+            moveOneStep(e);
+            endOfGame();
+        });
         $("#solve").click(solve);
-
     </script>
+
+    <div class="modal"></div>
+
+
 </body>
 </html>

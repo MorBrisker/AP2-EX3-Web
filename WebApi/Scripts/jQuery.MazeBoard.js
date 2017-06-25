@@ -1,17 +1,13 @@
-﻿var currentPos;
-var goalPos;
-var initPos;
+﻿
 var cellWidth, cellHeight;
-var mazeString;
 var rows, cols;
-//var index;
 
 (function ($) {
-    $.fn.drawMazey = function (maze) {
+    $.fn.drawMazey = function (maze, player, goal) {
 
         mazeString = maze.Maze;
-        var player = document.getElementById("unicorn");
-        var goal = document.getElementById("cloud");
+        //var player = start;
+        //var goal = end;
         var myCanvas = $(this)[0];
         var context = myCanvas.getContext("2d");
         context.clearRect(0, 0, myCanvas.width, myCanvas.height);
@@ -20,7 +16,7 @@ var rows, cols;
         cellWidth = myCanvas.width / cols;
         cellHeight = myCanvas.height / rows;
         initPos = maze.Start;
-        currentPos = maze.Start;
+        currPos = maze.Start;
         goalPos = maze.End;
         var count = 0;
         for (var i = 0; i < rows; i++) {
@@ -47,11 +43,11 @@ var rows, cols;
         var myCanvas = $(this)[0];
         var context = myCanvas.getContext("2d");
         context.fillStyle = "white";
-        context.fillRect(currentPos.Col * cellWidth, currentPos.Row * cellHeight, cellWidth, cellHeight);
-        currentPos.Row = initPos.Row;
-        currentPos.Col = initPos.Col;
+        context.fillRect(currPos.Col * cellWidth, currPos.Row * cellHeight, cellWidth, cellHeight);
+        currPos.Row = initPos.Row;
+        currPos.Col = initPos.Col;
 
-        context.drawImage(player, currentPos.Col * cellWidth, currentPos.Row * cellHeight, cellWidth, cellHeight);
+        context.drawImage(player, currPos.Col * cellWidth, currPos.Row * cellHeight, cellWidth, cellHeight);
 
 
 
@@ -60,16 +56,16 @@ var rows, cols;
         function frame() {
             switch (sol.charAt(i)) {
                 case '0':
-                    moveLeft(player, myCanvas);
+                    moveLeft(player, myCanvas, currPos);
                     break;
                 case '1':
-                    moveRight(player, myCanvas);
+                    moveRight(player, myCanvas, currPos);
                     break;
                 case '2':
-                    moveUp(player, myCanvas);
+                    moveUp(player, myCanvas, currPos);
                     break;
                 case '3':
-                    moveDown(player, myCanvas);
+                    moveDown(player, myCanvas, currPos);
                     break;
             }
             i++;
@@ -79,33 +75,28 @@ var rows, cols;
 })(jQuery);
 
 function moveOneStep(e) {
-    var myCanvas = $(this)[0];
+    var myCanvas = document.getElementById("mazeCanvas");
     var context = myCanvas.getContext("2d");
     var player = document.getElementById("unicorn");
     switch (e.which) {
         case 37:
-            moveLeft(player, myCanvas);
+            moveLeft(player, myCanvas, currPos);
             break;
         case 38:
-            moveUp(player, myCanvas);
+            moveUp(player, myCanvas, currPos);
             break;
         case 39:
-            moveRight(player, myCanvas);
+            moveRight(player, myCanvas, currPos);
             break;
         case 40:
-            moveDown(player, myCanvas);
+            moveDown(player, myCanvas, currPos);
             break;
         default:
             break;
     }
-
-
-    if ((currentPos.Row === goalPos.Row) && (currentPos.Col === goalPos.Col)) {
-        alert("you are the best");
-    }
 }
 
-function moveLeft(player, canvas) {
+function moveLeft(player, canvas, currentPos) {
     var context = canvas.getContext("2d");
     if (mazeString[currentPos.Row * cols + (currentPos.Col - 1)] === '0') {
         context.fillStyle = "white";
@@ -115,7 +106,7 @@ function moveLeft(player, canvas) {
     }
 }
 
-function moveUp(player, canvas) {
+function moveUp(player, canvas, currentPos) {
     var context = canvas.getContext("2d");
     if (mazeString[(currentPos.Row - 1) * cols + currentPos.Col] === '0') {
         context.fillStyle = "white";
@@ -125,7 +116,7 @@ function moveUp(player, canvas) {
     }
 }
 
-function moveRight(player, canvas) {
+function moveRight(player, canvas, currentPos) {
     var context = canvas.getContext("2d");
     if (mazeString[currentPos.Row * cols + (currentPos.Col + 1)] === '0') {
         context.fillStyle = "white";
@@ -135,7 +126,7 @@ function moveRight(player, canvas) {
     }
 }
 
-function moveDown(player, canvas) {
+function moveDown(player, canvas, currentPos) {
     var context = canvas.getContext("2d");
     if (mazeString[(currentPos.Row + 1) * cols + currentPos.Col] === '0') {
         context.fillStyle = "white";
