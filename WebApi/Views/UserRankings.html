@@ -32,38 +32,41 @@
 </head>
 <body>
     <ul id="nav-bar"></ul>
+    <script>
+        $("#nav-bar").load("NavBar.html");
+    </script>
     <div style="background-color:lightgrey; padding:20px";>
         <h1 class="body">User Rankings</h1>
-
-        <table id="t01">
-            <tr>
-                <th>Rank</th>
-                <th>Username</th>
-                <th>Wins</th>
-                <th>Loses</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>Mor the queen</td>
-                <td>2000</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Daniel</td>
-                <td>2</td>
-                <td>500</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Shani</td>
-                <td>1</td>
-                <td>300</td>
-            </tr>
-        </table>
+        <div id="tableDiv">
+            <table class="table" id="rankTable">
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Wins</th>
+                    <th>Loses</th>
+                </tr>
+            </table>
+        </div>
     </div>
     <script>
-            $("#nav-bar").load("NavBar.html");
+            var apiUrl = "../api/Users";
+            $.getJSON(apiUrl, function () {
+            })
+                .done(function (data) {
+                    var counter = 0;
+                    var obj;
+                    var i;
+                    for (i = 0; i < data.length; i++) {
+                        obj = data[i];
+                        counter++;
+                        $("#rankTable").append("<tr><td>" + counter + "</td><td><h>" + data[i].Name + "</p></td><td>" + data[i].Wins + "</td> <td>" + data[i].Losses + "</td></tr> ");
+                    }
+                    $("#tableDiv").show();
+                })
+                .fail(function () {
+                    alert("error");
+                });
+        
     </script>
 </body>
 </html>

@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>Login</title>
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="../Scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+    <script src="../Scripts/sha.js"></script>
+    <script src="../Scripts/sha1.js"></script>
+    <script src="../Scripts/sha_dev.js"></script>
 </head>
 <body>
     <style>
@@ -14,20 +17,36 @@
             font-family: 'Comic Sans MS';
         }
     </style>
+    <script src="../Scripts/LoginJS.js"></script>
     <ul id="nav-bar"></ul>
-    <div class="body">
-        <h1>Login</h1>
-        <h3>Use a local account to log in.</h3>
-        <form action="/action_page.php">
-            Username: <input type="text" name="Rows" value="Enter Username" class="form"><br>
-            Password: <input type="text" name="Cols" value="Enter password" class="form"><br><br>
-            <input type="submit" value="Login" class=" button">
-        </form>
-        <p><a class="link" href="Register.html">Register as a new user</a></p>
-    </div>
     <script>
             $("#nav-bar").load("NavBar.html");
     </script>
-    
+    <div class="body">
+        <h1>Login</h1>
+        <h3>Use a local account to log in.</h3>
+        <form id="loginForm">
+            Username: <input id="name" type="text" name="name" placeholder="Enter Username" class="form" ><br>
+            Password: <input id="pass" type="password" name="pass" placeholder="Enter password" class="form" ><br><br>
+            <input id="login" type="submit" value="Login" class="button">
+        </form>
+        <p><a class="link" href="Register.html">Register as a new user</a></p>
+    </div>
+    <script src="../Scripts/jquery.validate.min.js"></script>
+    <script>
+            $.validator.setDefaults({
+                submitHandler: function () {
+                    login();
+                }
+            });
+            $().ready(function () {
+                $("#loginForm").validate({
+                    rules: {
+                        name: "required",
+                        pass: "required"
+                    }
+                });
+            });
+    </script>
 </body>
 </html>

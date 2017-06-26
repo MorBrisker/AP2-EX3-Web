@@ -3,8 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>Register</title>
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="../Scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
+    <script src="../Scripts/sha.js"></script>
+    <script src="../Scripts/sha1.js"></script>
+    <script src="../Scripts/sha_dev.js"></script>
 </head>
 <body>
     <style>
@@ -14,20 +17,47 @@
             font-family: 'Comic Sans MS';
         }
     </style>
+
     <ul id="nav-bar"></ul>
+    <script>
+            $("#nav-bar").load("NavBar.html");
+    </script>
     <div class="body">
         <h1>Register</h1>
         <h3>Register to The Maze</h3>
-        <form action="/action_page.php">
-            Username: <input type="text" name="Rows" value="Enter Username" class="form"><br>
-            Password: <input type="text" name="Cols" value="******" class="form"><br>
-            Confirm Password: <input type="text" name="Cols" value="******" class="form"><br>
-            Email address: <input type="text" name="Cols" value="something@gmail.com" class="form"><br><br>
-            <input type="submit" value="Register" class=" button">
+        <form id="registerform">
+            Username: <input id="name" type="text" name="name" placeholder="Enter Username" class="form"><br>
+            Password: <input id="pass" type="password" name="pass" placeholder="Enter password" class="form"><br>
+            Confirm Password: <input id="confirmPass" type="password" name="confirmPass" placeholder="Re-enter password" class="form"><br>
+            E-mail address: <input id="email" name="email" placeholder="Enter E-mail" class="form"><br><br>
+            <input id="submit" type="submit" value="Register" class="button">
         </form>
     </div>
+    <script src="../Scripts/RegisterJS.js"></script>
+    <script src="../Scripts/jquery.validate.min.js"></script>
     <script>
-            $("#nav-bar").load("NavBar.html");
+        $.validator.setDefaults({
+            submitHandler: function () {
+                submit();
+            }
+        });
+        
+        $().ready(function () {
+            $("#registerform").validate({
+                rules: {
+                    name: "required",
+                    pass: "required",
+                    confirmPass: {
+                        required: "true",
+                        equalTo: "#pass"
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>

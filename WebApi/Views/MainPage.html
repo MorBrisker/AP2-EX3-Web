@@ -6,14 +6,34 @@
 </head>
 <body style="font-family: 'Comic Sans MS'">
     <ul id="nav-bar"></ul>
+    <script>
+        $("#nav-bar").load("NavBar.html");
+    </script>
     <div class="body">
         <h1>Maze Game</h1>
         <p>Play the original maze game for free.</p>
         <p>Play online against your friends.</p>
         <button class="button">Learn More >></button>
     </div>
+
     <script>
-        $("#nav-bar").load("NavBar.html");
+        $(document).ready(function () {
+            localStorage.setItem("rows", "10");
+            localStorage.setItem("cols", "10");
+            localStorage.setItem("algo", "BFS");
+        })
+        //$("#nav-bar").load("NavBar.html");
+
+        /*$("#nav-bar").load("NavBar.html", function () {
+            if (sessionStorage.getItem("user")) {
+                var hello = "Hello " + sessionStorage.getItem("user");
+                //$("register").text(hello);
+
+                document.getElementById("register").textContent = hello;
+                document.getElementById("register").href = "#";
+
+            }
+        });*/
     </script>
 </body>
 </html>

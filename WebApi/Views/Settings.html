@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Settings</title>
-    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="../Scripts/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="../CSS/StyleSheet.css">
 </head>
 <body>
@@ -14,24 +14,29 @@
             font-family: 'Comic Sans MS';
         }
     </style>
+    <script src="../Scripts/SettingsJS.js"></script>
     <ul id="nav-bar"></ul>
+    <script>
+        $("#nav-bar").load("NavBar.html");
+    </script>
     <div class="body">
         <h1>Settings</h1>
-        <form action="/action_page.php">
-            Rows: <input type="text" name="Rows" value="10" class="form"><br>
-            Cols: <input type="text" name="Cols" value="10" class="form"><br>
+        <form id="settingsForm">
+            Rows: <input id="rows" type="text" name="rows" class="form"><br>
+            Cols: <input id="cols" type="text" name="cols" class="form"><br>
             Search Algo:
-            <select style="font-family:'Comic Sans MS'">
+            <select id="algo" style="font-family:'Comic Sans MS'">
                 <option value="DFS">DFS</option>
                 <option value="BFS">BFS</option>
             </select><br><br>
-            <input type="submit" value="Save" class=" button">
+            <input id="submit" type="button" value="Save" onclick="saveSettings()" class=" button">
         </form>
     </div>
+    <script src="../Scripts/jquery.validate.min.js"></script>
     <script>
-            $("#nav-bar").load("NavBar.html");
+        $("#rows").val(localStorage.getItem("rows"));
+        $("#cols").val(localStorage.getItem("cols"));
+        $("#algo").val(localStorage.getItem("algo"));
     </script>
-
- 
 </body>
 </html>

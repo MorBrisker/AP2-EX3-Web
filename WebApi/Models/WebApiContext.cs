@@ -18,7 +18,7 @@ namespace WebApi.Models
         public WebApiContext() : base("name=WebApiContext")
         {
         }
-
-        public System.Data.Entity.DbSet<WebApi.Models.User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
+    
     }
 }
